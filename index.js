@@ -6,13 +6,12 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
-const generateScraperUrl = (apiKey) => {
+const generateScraperUrl = (apiKey) =>
 	`http://api.scraperapi.com?api_key=${apiKey}&autoparse=true`;
-};
+
 app.get("/", (req, res) => {
 	res.send("<h1>Amazon Web Scraper API</h1>");
 });
-
 // GET product info
 app.get("/products/:productId", async (req, res) => {
 	const { productId } = req.params;
@@ -25,6 +24,7 @@ app.get("/products/:productId", async (req, res) => {
 		);
 		res.json(JSON.parse(response));
 	} catch (error) {
+		console.log(error);
 		res.json(error.message);
 	}
 });
