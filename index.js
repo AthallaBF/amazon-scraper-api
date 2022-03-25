@@ -10,7 +10,7 @@ const generateScraperUrl = (apiKey) => {
 	`http://api.scraperapi.com?api_key=${apiKey}&autoparse=true`;
 };
 app.get("/", (req, res) => {
-	res.send("ngopi");
+	res.send("Amazon Web Scraper API");
 });
 
 // GET product info
